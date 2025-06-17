@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sachin's World</title>
+  <meta name="description"
+    content="Sachin's personal website — web developer, Jeep enthusiast, cricket fan, and admirer of Princess Leonor." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --secondary: #facc15;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gray: #94a3b8;
+      --dark-blue: #0b2e5b;
+      --gradient: linear-gradient(135deg, #2563eb, #1d4ed8);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-blue);
+      color: var(--light);
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--gradient);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path fill="rgba(255,255,255,0.1)" d="M30,10L50,30L70,10L90,30L70,50L90,70L70,90L50,70L30,90L10,70L30,50L10,30L30,10Z"/></svg>');
+      opacity: 0.1;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3.5rem;
+      font-weight: 700;
+      position: relative;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    header p {
+      font-size: 1.4rem;
+      margin-top: 15px;
+      opacity: 0.9;
+      position: relative;
+      font-weight: 300;
+    }
+
+    nav {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 15px 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      padding: 5px 10px;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      color: white;
+      background: var(--primary);
+      text-decoration: none;
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      background: linear-gradient(rgba(11, 46, 91, 0.8), rgba(11, 46, 91, 0.8)),
+        url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308') center/cover no-repeat;
+      padding: 120px 20px;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    main.container {
+      max-width: 1100px;
+      margin: 70px auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      background: white;
+      color: var(--dark);
+      padding: 50px;
+      border-radius: 16px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      margin-bottom: 70px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gradient);
+    }
+
+    .section:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 2.5rem;
+      margin-top: 0;
+      margin-bottom: 25px;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 2px;
+    }
+
+    h3 {
+      color: var(--primary-dark);
+      font-size: 1.8rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin: 25px 0;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.02);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    .fancy-button {
+      background: var(--gradient);
+      color: white;
+      padding: 14px 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      margin-top: 20px;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+      display: inline-block;
+    }
+
+    .fancy-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+    }
+
+    .fancy-button:active {
+      transform: translateY(1px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 1em;
+      color: var(--light);
+      background-color: var(--dark);
+      position: relative;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient);
+    }
+
+    footer i {
+      font-size: 1.5rem;
+      margin: 0 15px;
+      color: var(--secondary);
+      transition: all 0.3s ease;
+    }
+
+    footer i:hover {
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .social-links {
+      margin: 20px 0;
+    }
+
+    .parallax {
+      background-image: linear-gradient(rgba(11, 46, 91, 0.7), rgba(11, 46, 91, 0.7)),
+        url('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .parallax h2 {
+      color: white;
+      position: relative;
+      z-index: 1;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0 20px;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    }
+
+    blockquote {
+      background: rgba(37, 99, 235, 0.1);
+      border-left: 4px solid var(--primary);
+      padding: 20px;
+      margin: 30px 0;
+      font-style: italic;
+      border-radius: 0 8px 8px 0;
+    }
+
+    blockquote small {
+      display: block;
+      margin-top: 10px;
+      font-style: normal;
+      opacity: 0.8;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 30px;
+      justify-content: center;
+    }
+
+    .contact-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      text-align: center;
+      flex: 1;
+      min-width: 200px;
+      max-width: 300px;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-card i {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      header p {
+        font-size: 1.2rem;
+      }
+
+      nav ul {
+        gap: 15px;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .section {
+        padding: 30px;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .parallax {
+        height: 200px;
+        font-size: 2rem;
+      }
+
+      .fancy-button {
+        padding: 12px 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      .parallax {
+        height: 150px;
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Animation */
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body>
+  <header data-aos="fade-down">
+    <h1>Sachin's World</h1>
+    <p>Web Developer • Jeep Enthusiast • Inspired by Visionaries</p>
+  </header>
+
+  <nav data-aos="fade-down">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#jeep">Jeep</a></li>
+      <li><a href="#inspiration">Inspiration</a></li>
+      <li><a href="#elon">Tech Vision</a></li>
+      <li><a href="#leonor">Leonor</a></li>
+      <li><a href="#portfolio">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" data-aos="fade">
+    <div class="hero-content">
+      <h1>Hey, I'm Sachin 👋</h1>
+      <p>I build fast, modern websites and dream of epic Jeep adventures.</p>
+      <a href="#contact" class="fancy-button floating">Get In Touch</a>
+    </div>
+  </section>
+
+  <div class="parallax" data-aos="fade">
+    <h2>Welcome to My World</h2>
+  </div>
+
+  <main class="container">
+    <div class="section" id="about" data-aos="fade-up">
+      <h2>About Me</h2>
+      <img
+        src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/481122783_661059132925732_5086539665370862334_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=JPIRPK9a2TIQ7kNvwFSSYD9&_nc_oc=AdlUVx7enqynOa9DdH1-dVHU2KpwdAuHDBZex5uBBNJimR4mduNm_p0YwUZJmtAjkkmWrTRf80CkiRgBO9Vh9GuX&_nc_zt=23&_nc_ht=scontent.fktm3-1.fna&_nc_gid=xZz2uQnSPl0mD-GpqNGTLg&oh=00_AfNnUZ6hqk4LFD3UUxSoND5djr3g5_0PN3NolX1j4miD9Q&oe=68555719"
+        alt="sachin" width="450">
+      <p>Hi, I'm <strong>Sachin</strong> — a passionate web developer and Jeep enthusiast. I love creating websites that
+        are fast, beautiful, and meaningful. I'm inspired by great design and powerful vehicles. I believe in
+        simplicity, creativity, and learning from visionaries like Elon Musk and Sachin Tendulkar.</p>
+    </div>
+
+    <div class="section" id="jeep" data-aos="fade-right">
+      <h2>Why I Love Jeeps</h2>
+      <img
+        src="https://imgd.aeplcdn.com/664x374/n/cw/ec/174975/wrangler-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
+        alt="Jeep Wrangler parked outdoors in daylight">
+      <p>For me, Jeep is more than a vehicle. It's a symbol of freedom, exploration, and power. Jeeps represent
+        adventure and pushing limits. Someday I'll own one and go on epic road trips across India's incredible
+        landscapes.</p>
+    </div>
+
+    <div class="section" id="inspiration" data-aos="zoom-in">
+      <h2>My Inspiration: Sachin Tendulkar</h2>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Sachin_Tendulkar_at_MRF_Promotion_Event.jpg"
+        alt="Sachin Tendulkar speaking at an event">
+      <p>Sachin Tendulkar is my biggest inspiration. His focus, passion, and calm under pressure taught me how to handle
+        both success and failure with grace. Whether I'm coding or facing challenges, I remember his example and push
+        forward with dedication and humility.</p>
+      <p><a href="https://en.wikipedia.org/wiki/Sachin_Tendulkar" target="_blank" rel="noopener noreferrer">Learn more
+          about him</a></p>
+    </div>
+
+    <div class="section" id="elon" data-aos="fade-left">
+      <h2>Tech Vision: Inspired by Elon Musk</h2>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg"
+        alt="Elon Musk speaking at an event" width="350">
+      <p>In the tech world, Elon Musk is my guiding star. His relentless pursuit of innovation at Tesla, SpaceX, and
+        Neuralink inspires me to think bigger and push boundaries in web development. I admire how he combines technical
+        brilliance with bold vision to solve humanity's biggest challenges.</p>
+      <blockquote>"When something is important enough, you do it even if the odds are not in your favor." <small>- Elon
+          Musk</small></blockquote>
+      <p>Like Musk, I believe technology should solve real problems and make life better. My goal is to bring this
+        mindset to every project I work on.</p>
+      <p><a href="https://en.wikipedia.org/wiki/Elon_Musk" target="_blank" rel="noopener noreferrer">Learn more about
+          Elon Musk</a></p>
+    </div>
+
+    <div class="section" id="leonor" data-aos="fade-up">
+      <h2>Princess Leonor: My Crush</h2>
+      <img
+        src="https://s1.ppllstatics.com/mujerhoy/www/multimedia/202410/30/media/cortadas/leonor-19-cumpleanos-kb7B-U22016647843118T-1248x1248@MujerHoy.jpg"
+        alt="crush" width="340">
+      <p>Princess Leonor is not only a symbol of grace and responsibility but also someone whose beauty and charm have
+        captured my heart. Her elegance, poise, and the sparkle in her eyes are truly mesmerizing. With every
+        appearance, she radiates warmth, intelligence, and a natural kindness that's rare to find. Her gentle smile and
+        pure presence make her unbelievably cute. I admire her deeply—not just as a future queen, but as a person. It
+        may sound bold, but yes… Princess Leonor is my biggest crush.</p>
+      <blockquote>"Her smile holds the kind of magic that makes the world a little softer." <br><small>— From someone
+          quietly inspired</small></blockquote>
+    </div>
+
+    <div class="section" id="portfolio" data-aos="fade-right">
+      <h2>My Projects</h2>
+      <p>Projects coming soon! Stay tuned.</p>
+    </div>
+
+    <div class="section" id="contact" data-aos="fade-up">
+      <h2>Contact Me</h2>
+      <p>Want to work with me or just say hi? I'd love to hear from you!</p>
+      <form action="https://formspree.io/f/your_real_form_id" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
+        <button type="submit" class="fancy-button">Send Message</button>
+      </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sachin | Jeep Lover & Tech Enthusiast | Web Developer</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/sac__hin_09?igsh=MXBqMWJ5ZzU1Y2V3" target="_blank" rel="noopener noreferrer"
+        aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/sachin.rijal.73566" target="_blank" rel="noopener noreferrer"
+        aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.linkedin.com/in/sachin-rijal-b35164354?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+        target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://wa.me/9765870064" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i
+          class="fab fa-whatsapp"></i></a>
+      <a href="mailto:rijalsachin58@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  </script>
+</body>
+
+</html>
